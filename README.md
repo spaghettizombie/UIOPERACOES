@@ -99,30 +99,74 @@ A plataforma disponibiliza vinte e nove tipos de marcadores agrupados por funç�
 ### 3.2 Categorias e tipos
 
 **Navegação e posicionamento**
-- WPT (Waypoint), OP (Posto de Observação), BP (Posição de Edifício), CP (Checkpoint)
+
+| Sigla | Designação |
+|---|---|
+| WPT | Waypoint |
+| OP | Posto de Observação |
+| BP | Posição de Edifício |
+| CP | Checkpoint / Cordão |
 
 **Inteligência sobre adversário**
-- TGT (Alvo confirmado), SUS (Suspeito), HOS (Refém), VIP (Pessoa protegida)
 
-**Forças amigas**
-- FRP (Equipa amiga genérica), PC (Posto de Comando), PAT (Patrulha GNR)
-- GIO (Equipa GIOE), GIP (Equipa GIOP)
-- SNP (Sniper), STK (Stack), BRE (Breacher)
-- K9 (Cinotécnica), EOD (Desactivação de explosivos)
-- NEG (Negociador), DRN (Drone)
+| Sigla | Designação |
+|---|---|
+| TGT | Alvo confirmado (HVT) |
+| SUS | Suspeito (não confirmado) |
+| HOS | Refém |
+| VIP | Pessoa protegida |
+
+**Forças Amigas** (ordenadas por hierarquia operacional)
+
+| Sigla | Designação | Identidade visual |
+|---|---|---|
+| PC | Posto de Comando | Fundo verde escuro · borda e texto dourado |
+| GIO | UI — GIOE | Fundo vermelho · borda e texto dourado |
+| GIP | UI — GIOP | Fundo preto · borda e texto dourado |
+| PAT | GNR — Patrulha | Fundo verde escuro · borda e texto dourado |
+| PSP | PSP — Patrulha | Fundo azul escuro · borda e texto branco |
+| BV | BV — Bombeiros | Fundo vermelho · borda e texto branco |
+| INM | INM — INEM | Fundo azul médio · borda e texto branco |
+| K9 | K9 — Cinotécnica | Fundo preto · borda e texto dourado |
+| EOD | Engenhos / Desactivação | Cor padrão |
+| SNP | Sniper / Overwatch | Cor padrão |
+| STK | Stack (pré-entrada) | Cor padrão |
+| BRE | Breach point | Cor padrão |
+| NEG | Negociador | Cor padrão |
+| DRN | Drone / UAV | Cor padrão |
+| FRP | Força amiga (genérica) | Cor padrão |
+
+A diferenciação cromática entre forças com identidade gráfica institucional (PC, GIO, GIP, PAT, K9, PSP, BV, INM) e meios especiais permite identificação imediata em vista táctica.
 
 **Manobra e objectivos**
-- OBJ (Objectivo da operação), INF (Ponto de infiltração), EXF (Ponto de exfiltração)
+
+| Sigla | Designação |
+|---|---|
+| OBJ | Objectivo da operação |
+| INF | Ponto de infiltração |
+| EXF | Ponto de exfiltração |
 
 **Sustentação**
-- CCP (Casualty Collection Point / MEDEVAC), SUP (Reabastecimento)
-- COM (Posto de comunicações), HLZ (Heliport / Helicopter Landing Zone)
+
+| Sigla | Designação |
+|---|---|
+| CCP | Casualty Collection Point (MEDEVAC) |
+| SUP | Reabastecimento |
+| COM | Posto de comunicações |
+| HLZ | Heliport / Helicopter Landing Zone |
 
 **Mobilidade**
-- VEH (Viatura amiga), TVE (Viatura-alvo)
+
+| Sigla | Designação |
+|---|---|
+| VEH | Viatura amiga |
+| TVE | Viatura-alvo |
 
 **Risco**
-- HZD (Hazard / Perigo)
+
+| Sigla | Designação |
+|---|---|
+| HZD | Hazard / Perigo |
 
 ### 3.3 Atributos por marcador
 
@@ -192,13 +236,10 @@ Dois cliques: centro e raio. Visualização distinta com tracejado vermelho.
 ### 4.9 Barreira / Corte de estrada
 Dois cliques nas extremidades da barreira. Gera um rectângulo escuro perpendicular ao vector definido, com etiqueta de comprimento.
 
-### 4.10 Linha de visão
-Ver secção 6.
-
-### 4.11 Quadrícula militar (MGRS)
+### 4.10 Quadrícula militar (MGRS)
 Sobreposição de grelha conforme padrão militar. Activável também através da tecla `Q`.
 
-### 4.12 Limpeza
+### 4.11 Limpeza
 Acção de limpeza global de medições, reversível por meio do histórico (Ctrl+Z).
 
 ---
@@ -340,7 +381,7 @@ Painel de informação astronómica com cálculo de ascensão solar, ocaso, posi
 
 ### 9.1 Acesso
 
-Controlo "☀" na barra de ferramentas. Atalho: tecla `L`.
+Controlo dedicado na barra de ferramentas. Atalho: tecla `L`.
 
 ### 9.2 Informação solar
 
@@ -378,7 +419,7 @@ A activação do modo de projecção apresenta no mapa três vectores radiais a 
 
 - Vector tracejado âmbar: azimute do nascer-do-sol;
 - Vector tracejado laranja: azimute do pôr-do-sol;
-- Vector contínuo amarelo: azimute solar para o instante de referência (real ou simulado);
+- Vector contínuo amarelo: azimute solar para o instante de referência (real ou simulado).
 
 Em modo simulação, o vector solar é apresentado mesmo quando a elevação é negativa, com cor cinzenta e tracejado, indicando a posição do astro abaixo do horizonte.
 
@@ -507,7 +548,7 @@ Sistema de gestão de visibilidade e opacidade por categoria semântica, permiti
 | Categoria | Conteúdo |
 |---|---|
 | Inteligência | TGT, SUS, HOS, VIP |
-| Equipas Amigas | FRP, PC, PAT, GIO, GIP, SNP, STK, BRE, K9, EOD, NEG, DRN |
+| Forças Amigas | PC, GIO, GIP, PAT, PSP, BV, INM, K9, EOD, SNP, STK, BRE, NEG, DRN, FRP |
 | Logística | CCP, SUP, COM, HLZ |
 | Manobra | WPT, OP, BP, CP, OBJ, INF, EXF |
 | Especial | VEH, TVE, HZD |
@@ -523,7 +564,7 @@ Sistema de gestão de visibilidade e opacidade por categoria semântica, permiti
 ### 13.3 Aplicações
 
 - Briefings sequenciais com revelação progressiva de informação;
-- Análise focada num subconjunto específico (ex: apenas equipas amigas);
+- Análise focada num subconjunto específico (ex: apenas Forças Amigas);
 - Atenuação de elementos não-essenciais para destaque dos relevantes.
 
 ---
@@ -667,7 +708,7 @@ Geração de imagem em formato PNG com a totalidade do conteúdo cartográfico v
 - Marcador GPS (quando activo)
 - Itinerários ORS calculados
 
-### 18.2 Características técnicas
+### 18.2 Características
 
 - Resolução triplicada relativamente à do ecrã (5760×3240 px num ecrã FullHD)
 - Renderização vectorial de texto e linhas
@@ -725,15 +766,15 @@ A plataforma adapta-se a dispositivos com diferentes formatos.
 
 ### 21.1 Dispositivos móveis (ecrã reduzido)
 
-- Painéis em sobreposição não-intrusiva
-- Controlos dimensionados para interacção táctil (mínimo 40×40 px)
-- Barra de estado em formato condensado
-- Acessos rápidos a "Pontos" e "Painel" no rodapé
+- Painéis em sobreposição não-intrusiva;
+- Controlos dimensionados para interacção táctil (mínimo 40×40 px);
+- Barra de estado em formato condensado;
+- Acessos rápidos a "Pontos" e "Painel" no rodapé.
 
 ### 21.2 Tablets
 
-- Suporte ao modo desktop completo
-- Comutação opcional para modo móvel
+- Suporte ao modo desktop completo;
+- Comutação opcional para modo móvel.
 
 ### 21.3 Interacção táctil
 
@@ -754,14 +795,14 @@ Os dispositivos móveis aproveitam o GPS interno, com precisão típica de 5 a 1
 
 ### 22.1 Tema escuro (configuração padrão)
 
-- Paleta neutra em tons de cinzento
-- Texto principal em branco-suave
-- Realces cromáticos diferenciados por função
+- Paleta neutra em tons de cinzento;
+- Texto principal em branco-suave;
+- Realces cromáticos diferenciados por função.
 
 ### 22.2 Tema claro
 
-- Comutação através do controlo na barra de estado
-- Indicado para utilização em ambientes com forte iluminação
+- Comutação através do controlo na barra de estado;
+- Indicado para utilização em ambientes com forte iluminação.
 
 ### 22.3 Cromatismo da barra de ferramentas
 
@@ -785,13 +826,14 @@ Os dispositivos móveis aproveitam o GPS interno, com precisão típica de 5 a 1
 2. Posicionamento na zona de operação através da camada satélite;
 3. Aquisição da área para operação offline (se aplicável);
 4. Marcação dos elementos críticos (TGT, OBJ, HZD);
-5. Marcação dos elementos de apoio (WPT, CP, INF, EXF);
-6. Validação geométrica através das ferramentas de medição;
-7. Análise de linha de visão entre pontos críticos;
-8. Definição da timeline operacional com sincronização de equipas;
-9. Verificação das condições astronómicas e meteorológicas para a janela operacional;
-10. Anotação contextual através de caixas de comentário;
-11. Geração do relatório de missão.
+5. Marcação das forças amigas a empenhar (PC, GIO, GIP, PAT, PSP, BV, INM, K9, etc.);
+6. Marcação dos elementos de apoio (WPT, CP, INF, EXF);
+7. Validação geométrica através das ferramentas de medição;
+8. Análise de linha de visão entre pontos críticos;
+9. Definição da timeline operacional com sincronização de equipas;
+10. Verificação das condições astronómicas e meteorológicas para a janela operacional;
+11. Anotação contextual através de caixas de comentário;
+12. Geração do relatório de missão.
 
 ### 23.2 Fase de execução
 
