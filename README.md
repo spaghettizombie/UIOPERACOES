@@ -1,738 +1,823 @@
-# Manual do Utilizador — Plataforma Táctica GIOE / ISEOP
+# Manual Operacional — Plataforma Táctica GIOE / ISEOP
 
-Bem-vindo. Este guia explica como usar todas as funcionalidades da plataforma. Não precisas de conhecimento técnico — basta seguir os passos descritos.
+Documento destinado a operadores e analistas. Estabelece as funcionalidades disponíveis, os procedimentos de utilização e os fluxos operacionais recomendados para a plataforma de planeamento e execução táctica.
 
 ---
 
 ## Índice
 
-1. [Primeiros Passos](#1-primeiros-passos)
-2. [Navegar no Mapa](#2-navegar-no-mapa)
-3. [Marcar Pontos Tácticos](#3-marcar-pontos-tácticos)
-4. [Fazer Medições](#4-fazer-medições)
-5. [Adicionar Comentários](#5-adicionar-comentários)
-6. [Usar o GPS](#6-usar-o-gps)
-7. [Calcular Rotas por Estrada](#7-calcular-rotas-por-estrada)
-8. [Análise Solar e Lunar](#8-análise-solar-e-lunar)
-9. [Análise por Inteligência Artificial](#9-análise-por-inteligência-artificial)
-10. [Trabalhar Offline (Sem Internet)](#10-trabalhar-offline-sem-internet)
-11. [Guardar e Partilhar (Importar/Exportar)](#11-guardar-e-partilhar-importarexportar)
-12. [Gerar Relatórios](#12-gerar-relatórios)
-13. [Capturar Imagem do Mapa](#13-capturar-imagem-do-mapa)
-14. [Desfazer Acções](#14-desfazer-acções)
-15. [Atalhos Rápidos](#15-atalhos-rápidos)
-16. [Usar em Telemóvel ou Tablet](#16-usar-em-telemóvel-ou-tablet)
-17. [Personalização Visual](#17-personalização-visual)
-18. [Dicas e Boas Práticas](#18-dicas-e-boas-práticas)
-19. [Resolver Problemas Comuns](#19-resolver-problemas-comuns)
-20. [Fluxo Recomendado para Nova Operação](#20-fluxo-recomendado-para-nova-operação)
+1. [Inicialização e Selecção de Perfil](#1-inicialização-e-selecção-de-perfil)
+2. [Navegação Cartográfica](#2-navegação-cartográfica)
+3. [Sistema de Pontos Tácticos](#3-sistema-de-pontos-tácticos)
+4. [Instrumentos de Medição](#4-instrumentos-de-medição)
+5. [Caixas de Comentário](#5-caixas-de-comentário)
+6. [Linha de Visão (LOS)](#6-linha-de-visão-los)
+7. [Geolocalização (GPS)](#7-geolocalização-gps)
+8. [Cálculo de Itinerários (ORS)](#8-cálculo-de-itinerários-ors)
+9. [Análise Solar e Lunar](#9-análise-solar-e-lunar)
+10. [Análise por Inteligência Artificial](#10-análise-por-inteligência-artificial)
+11. [Operação em Modo Offline](#11-operação-em-modo-offline)
+12. [Timeline Operacional](#12-timeline-operacional)
+13. [Camadas Operacionais](#13-camadas-operacionais)
+14. [Análise Meteorológica](#14-análise-meteorológica)
+15. [Modo Briefing](#15-modo-briefing)
+16. [Permuta de Dados (KMZ/KML)](#16-permuta-de-dados-kmzkml)
+17. [Geração de Relatórios](#17-geração-de-relatórios)
+18. [Captura de Imagem do Mapa](#18-captura-de-imagem-do-mapa)
+19. [Histórico e Reversão de Acções](#19-histórico-e-reversão-de-acções)
+20. [Atalhos de Teclado](#20-atalhos-de-teclado)
+21. [Operação em Dispositivos Móveis](#21-operação-em-dispositivos-móveis)
+22. [Configuração Visual](#22-configuração-visual)
+23. [Procedimento Operacional Recomendado](#23-procedimento-operacional-recomendado)
+24. [Resolução de Anomalias](#24-resolução-de-anomalias)
 
 ---
 
-## 1. Primeiros Passos
+## 1. Inicialização e Selecção de Perfil
 
-### Escolher o Perfil Operacional
+A plataforma exige a selecção de um perfil operacional no arranque inicial:
 
-Quando abres a plataforma pela primeira vez, aparece um ecrã com dois perfis:
+- **GIOE** — Grupo de Intervenção de Operações Especiais. Identidade cromática vermelha.
+- **ISEOP** — Intervenção em Situações Especiais de Ordem Pública. Identidade cromática verde.
 
-- **GIOE** — Grupo de Intervenção de Operações Especiais (cor vermelha)
-- **ISEOP** — Intervenção em Situações Especiais de Ordem Pública (cor verde)
+A selecção determina:
 
-Clica naquele que corresponde à tua unidade. Esta escolha:
-- Define a cor que aparece nos relatórios, barreiras e perímetros
-- Personaliza o branding em PDFs, Word e capturas
-- Fica memorizada para próximas sessões
+- A cor primária aplicada a barreiras, perímetros e elementos de sinalização;
+- O cabeçalho de identificação dos relatórios em formato PDF e Word;
+- O prefixo dos ficheiros exportados.
 
-### Mudar de Perfil
-
-Podes alternar entre perfis a qualquer momento — clica no nome do perfil no canto inferior direito da barra de status. **Não perdes os teus pontos** ao mudar; só as cores e o nome nos relatórios mudam.
+A escolha é persistida em sessão e pode ser alterada em qualquer momento através do indicador no canto inferior direito da barra de estado. A alteração de perfil não compromete os dados operacionais já registados.
 
 ---
 
-## 2. Navegar no Mapa
+## 2. Navegação Cartográfica
 
-### Movimentação Básica
-- **Arrastar com rato** → mover o mapa
-- **Roda do rato** ou **`+` / `−`** no canto superior esquerdo → ampliar / reduzir
-- **Duplo clique** → zoom no ponto clicado
+### 2.1 Controlos básicos
 
-### Mudar Tipo de Mapa
-No painel lateral encontras 13 estilos de mapa diferentes, agrupados:
+| Acção | Procedimento |
+|---|---|
+| Deslocar mapa | Arrastar com botão esquerdo do rato |
+| Aproximar/afastar | Roda do rato ou controlos `+`/`−` |
+| Zoom dirigido | Duplo-clique no ponto de interesse |
 
-- **Google**: Satélite, Híbrido (satélite + nomes), Terreno, Ruas
-- **ESRI**: World Imagery, Topográfico, Streets
-- **Bing**: Aéreo
-- **Open-source**: OpenStreetMap, OpenTopoMap, CartoDB Dark, CartoDB Light, OSM França (edifícios)
+### 2.2 Camadas cartográficas disponíveis
 
-Clica numa miniatura para mudar imediatamente.
+A plataforma disponibiliza treze fontes cartográficas, organizadas em quatro grupos:
 
-**Recomendado:**
-- **Satélite Google** para análise visual de zonas
-- **OpenTopoMap** para terrenos com relevo (montanhas, vales)
-- **CartoDB Dark** para vista nocturna com bom contraste
+**Google Maps:** Satélite, Híbrido, Terreno, Ruas
 
-### Escala
-No canto inferior esquerdo aparece sempre uma escala em metros/km que se actualiza com o zoom — ajuda a estimar distâncias rapidamente.
+**ESRI:** World Imagery (alta resolução), Topográfico, Streets
 
-### Posição inicial
-O mapa abre por defeito centrado em Loures (38.76, -9.20). Podes começar a navegar a partir daí.
+**Bing Maps:** Aéreo
+
+**Fontes abertas:** OpenStreetMap, OpenTopoMap, CartoDB Dark, CartoDB Positron, OSM France
+
+### 2.3 Recomendações de utilização
+
+| Cenário operacional | Camada recomendada |
+|---|---|
+| Análise visual e identificação de objectos | Satélite (Google) ou World Imagery (ESRI) |
+| Planeamento em terreno acidentado | OpenTopoMap |
+| Operação nocturna / leitura em condições de baixa luminosidade | CartoDB Dark |
+| Análise de edificado urbano | OSM France ou Híbrido |
+
+### 2.4 Indicadores cartográficos
+
+Uma escala métrica é mantida no canto inferior esquerdo, ajustando-se automaticamente ao nível de zoom para apoiar estimativas dimensionais imediatas.
 
 ---
 
-## 3. Marcar Pontos Tácticos
+## 3. Sistema de Pontos Tácticos
 
-A plataforma tem **29 tipos de marcadores** organizados por categoria.
+A plataforma disponibiliza vinte e nove tipos de marcadores agrupados por função operacional.
 
-### Como Criar um Ponto
+### 3.1 Métodos de criação
 
-**Método 1 — Toolbar:**
-1. Clica no botão "Marker" (alfinete) na barra superior
-2. Clica no mapa onde queres marcar
-3. Edita os campos no painel lateral
+- **Toolbar:** activar a ferramenta de marcação e seleccionar a posição no mapa.
+- **Menu contextual:** botão direito sobre a posição desejada → "Fixar ponto aqui".
 
-**Método 2 — Botão direito:**
-1. Botão direito sobre o mapa
-2. Escolhe **"⊕ Fixar ponto aqui"**
+### 3.2 Categorias e tipos
 
-### Tipos Disponíveis
+**Navegação e posicionamento**
+- WPT (Waypoint), OP (Posto de Observação), BP (Posição de Edifício), CP (Checkpoint)
 
-**Navegação e Posição** (azul)
-- WPT — Waypoint genérico
-- OP — Posto de observação
-- BP — Posição de batalha
-- CP — Checkpoint
+**Inteligência sobre adversário**
+- TGT (Alvo confirmado), SUS (Suspeito), HOS (Refém), VIP (Pessoa protegida)
 
-**Alvos e Suspeitos** (vermelho/laranja)
-- TGT — Alvo confirmado
-- SUS — Suspeito
-- HOS — Refém / Hostage
-- VIP — Pessoa de interesse / VIP
+**Forças amigas**
+- FRP (Equipa amiga genérica), PC (Posto de Comando), PAT (Patrulha GNR)
+- GIO (Equipa GIOE), GIP (Equipa GIOP)
+- SNP (Sniper), STK (Stack), BRE (Breacher)
+- K9 (Cinotécnica), EOD (Desactivação de explosivos)
+- NEG (Negociador), DRN (Drone)
 
-**Equipas Amigas**
-- FRP — Equipa amiga genérica
-- **PC** — Posto de Comando (azul)
-- **PAT** — Patrulha GNR (verde escuro)
-- **GIO** — Equipa GIOE (vermelho com **borda dourada**)
-- **GIP** — Equipa GIOP (preto com **borda dourada**)
-- SNP — Sniper
-- STK — Stack
-- BRE — Breacher
-- K9 — Equipa cinotécnica
-- EOD — Desactivação de explosivos
-- NEG — Negociador
-- DRN — Drone
+**Manobra e objectivos**
+- OBJ (Objectivo da operação), INF (Ponto de infiltração), EXF (Ponto de exfiltração)
 
-**Objectivos e Acção**
-- OBJ — Objectivo
-- INF — Infiltração
-- EXF — Exfiltração
+**Sustentação**
+- CCP (Casualty Collection Point / MEDEVAC), SUP (Reabastecimento)
+- COM (Posto de comunicações), HLZ (Heliport / Helicopter Landing Zone)
 
-**Logística e Comunicações**
-- CCP — Casualty Collection Point
-- SUP — Suporte logístico
-- COM — Comunicações
-- HLZ — Zona de aterragem helicóptero
+**Mobilidade**
+- VEH (Viatura amiga), TVE (Viatura-alvo)
 
-**Viaturas**
-- VEH — Viatura genérica
-- TVE — Viatura táctica
+**Risco**
+- HZD (Hazard / Perigo)
 
-**Perigo**
-- HZD — Risco / Hazard
+### 3.3 Atributos por marcador
 
-### Personalizar Cada Ponto
+Cada marcador suporta os seguintes atributos editáveis:
 
-Em cada marcador podes definir:
-- **Nome** (ex: "Casa do alvo principal")
-- **Descrição** e **notas**
-- **Prioridade**: Alta / Média / Baixa — Alta mostra um ponto vermelho pulsante
-- **Estado**: Planeado / Activo / Comprometido / Neutralizado
-  - Planeado → marcador tracejado
-  - Comprometido → X vermelho sobreposto
-  - Neutralizado → opacidade reduzida
-- **Confiança**: Alta / Média / Baixa — mostra "?" amarelo ou vermelho
+| Atributo | Valores |
+|---|---|
+| Nome | Texto livre |
+| Descrição | Texto livre |
+| Notas | Texto livre |
+| Prioridade | Alta, Média, Baixa |
+| Estado | Planeado, Activo, Comprometido, Neutralizado |
+| Confiança | Alta, Média, Baixa |
 
-### Ver Detalhes de um Ponto
+Os atributos são reflectidos visualmente no marcador:
+- Prioridade alta apresenta indicador pulsante a vermelho;
+- Estado "Comprometido" apresenta sobreposição cruciforme vermelha;
+- Estado "Neutralizado" apresenta opacidade reduzida;
+- Confiança média ou baixa apresenta marca interrogativa em amarelo ou vermelho.
 
-Clica num marcador → aparece um popup com:
+### 3.4 Acções sobre marcadores
+
+A selecção de um marcador apresenta um popup com:
+
 - Coordenadas em formato decimal e UTM
-- **Altitude** (obtida automaticamente)
-- Prioridade e descrição
-- Botões de acção:
-  - **▶ ROTA DAQUI** (verde fluorescente) — calcula rota desde a tua posição GPS
-  - **EDITAR** — abre formulário no painel
-  - **CENTRAR** — centra o mapa nesse ponto
-  - **✕ REMOVER** — apaga (com confirmação via undo)
+- Altitude (obtida automaticamente)
+- Atributos configurados
+- Acções disponíveis: cálculo de itinerário desde a posição GPS, edição, centragem, remoção
 
-### Mover ou Editar
-- **Arrasta** o marcador com o rato para reposicionar
-- **Botão direito** sobre o marcador → menu com:
-  - Editar
-  - Remover
-  - Centrar mapa
-  - Rota da minha posição até aqui (se GPS estiver activo)
-  - Abrir no Google Maps
+O menu contextual (botão direito) apresenta adicionalmente:
+
+- Cálculo de itinerário desde a posição actual
+- Abertura no Google Maps
+
+A reposicionação é feita por arrastamento.
 
 ---
 
-## 4. Fazer Medições
+## 4. Instrumentos de Medição
 
-Ferramentas disponíveis na barra superior. Após escolher uma ferramenta, aparece uma **dica na barra inferior** a explicar o que fazer.
+A barra de ferramentas integra onze instrumentos de medição. Cada selecção apresenta na barra inferior um indicativo do procedimento esperado.
 
-### Distância (régua)
-1. Clica no botão da régua
-2. Clica em vários pontos no mapa
-3. **Duplo-clique** ou **Enter** para terminar
-4. Mostra distância de cada segmento e total
-5. Cor: amarelo fluorescente
+### 4.1 Distância linear
+Sequência de cliques para definir os vértices, finalizando com duplo-clique ou tecla Enter. Apresenta a distância total e por segmento.
 
-### Área
-1. Clica no botão de polígono
-2. Clica nos vértices da área
-3. **Duplo-clique** para fechar e calcular
-4. Apresenta área em m² ou km² automaticamente
+### 4.2 Área poligonal
+Definição dos vértices com cliques sucessivos. Duplo-clique fecha o polígono. O resultado é apresentado em metros quadrados ou quilómetros quadrados, conforme magnitude.
 
-### Raio / Círculo
-1. Primeiro clique = centro
-2. Segundo clique = define o raio
-3. Útil para áreas de cobertura, raios de operação
-4. Cor: ciano fluorescente
+### 4.3 Raio circular
+Dois cliques: centro e ponto de raio. Apresenta o raio em metros.
 
-### Azimute
-1. Primeiro clique = origem
-2. Segundo clique = destino
-3. Mostra ângulo (0-360°) e distância
-4. Cor: verde fluorescente
+### 4.4 Azimute geodésico
+Dois cliques: origem e destino. Apresenta ângulo (0–360°) e distância.
 
-### Anéis de Alcance
-- Clica no centro
-- Desenha automaticamente **3 anéis** a 500m / 1km / 2km
-- Útil para visualizar perímetros de protecção
+### 4.5 Anéis de alcance
+Um clique no centro gera automaticamente três círculos concêntricos a 500 m, 1 km e 2 km, indicados para visualização de perímetros de protecção ou cobertura.
 
-### Sector de Tiro
-1. Primeiro clique = posição
-2. Segundo clique = direcção e alcance
-3. Desenha um cone de 60° na direcção indicada
-4. Cor: laranja
+### 4.6 Sector de tiro
+Dois cliques: posição de tiro e ponto-objectivo. Desenha um cone de 60° na direcção definida.
 
-### Rota Multi-Segmento
-1. Clica em vários waypoints sequenciais
-2. **Duplo-clique** ou **Enter** para terminar
-3. Calcula distância total
+### 4.7 Itinerário multi-segmento
+Sequência de waypoints com duplo-clique para finalizar. Apresenta distância acumulada.
 
-### Zona de Exclusão / Buffer
-1. Centro + raio
-2. Visual distintivo: tracejado vermelho
-3. Útil para áreas de risco
+### 4.8 Zona de exclusão
+Dois cliques: centro e raio. Visualização distinta com tracejado vermelho.
 
-### Barreira / Corte de Estrada
-1. Clica nas duas extremidades (A e B) do corte
-2. Desenha um rectângulo escuro estreito perpendicular
-3. Mostra o comprimento
-4. Útil para sinalizar acessos bloqueados, cortes de estrada
+### 4.9 Barreira / Corte de estrada
+Dois cliques nas extremidades da barreira. Gera um rectângulo escuro perpendicular ao vector definido, com etiqueta de comprimento.
 
-### Quadrícula Militar (MGRS)
-- Botão dedicado ou tecla `Q`
-- Liga/desliga uma grelha sobre o mapa com referências MGRS de 1km
-- Compatível com cartografia militar standard
+### 4.10 Linha de visão
+Ver secção 6.
 
-### Limpar Tudo
-- Botão "Clear" na toolbar
-- Remove **todas** as medições de uma vez
-- Reversível com Ctrl+Z
+### 4.11 Quadrícula militar (MGRS)
+Sobreposição de grelha conforme padrão militar. Activável também através da tecla `Q`.
+
+### 4.12 Limpeza
+Acção de limpeza global de medições, reversível por meio do histórico (Ctrl+Z).
 
 ---
 
-## 5. Adicionar Comentários
+## 5. Caixas de Comentário
 
-Caixas de texto em formato de balão de fala, sempre visíveis no mapa.
+Marcadores textuais permanentemente visíveis no mapa, em formato de balão, destinados a anotações operacionais contextuais.
 
-### Como Criar
-1. Clica no botão "Caixa de Comentário" (cor amarela na toolbar)
-2. Clica no mapa onde queres colocar
-3. Aparece um modal com:
-   - Campo de texto (máx. **80 caracteres**)
-   - Contador de caracteres
-   - **3 cores** disponíveis:
-     - **Branco** (fundo branco, texto preto, borda preta)
-     - **Preto** (fundo preto, texto branco, borda branca)
-     - **Vermelho** (fundo vermelho, texto branco, borda branca)
-4. Escreve o texto, escolhe a cor, clica **Guardar**
+### 5.1 Características
 
-### Editar
-- **Clique** sobre o balão → reabre o modal
-- Podes mudar texto e/ou cor
-- Apagar todo o texto = remove o balão
+- Limite de oitenta caracteres por anotação;
+- Três esquemas cromáticos disponíveis:
+  - Branco (fundo branco, texto preto, contorno preto)
+  - Preto (fundo preto, texto branco, contorno branco)
+  - Vermelho (fundo vermelho, texto branco, contorno branco)
+- Forma vectorial única com extremidade descendente integrada com a aresta esquerda do balão.
 
-### Mover
-- **Arrasta** o balão para reposicionar
+### 5.2 Procedimento
 
-### Apagar
-- **Botão direito** → "✕ Remover"
+1. Activação do instrumento na barra de ferramentas;
+2. Selecção da posição no mapa;
+3. Introdução do texto e selecção do esquema cromático;
+4. Confirmação.
 
-### Casos de Uso Típicos
-- "ZONA DE REUNIÃO" sobre área de concentração
-- "Acesso bloqueado por obras"
-- "Câmara de vigilância"
-- "Hora H+30 reagrupar aqui"
-- "Estacionamento de viaturas"
+### 5.3 Manutenção
 
-Os balões aparecem nas capturas PNG e relatórios.
+- A selecção do balão reabre o painel de edição;
+- A reposicionação é feita por arrastamento;
+- A remoção é executada através do menu contextual ou eliminando o conteúdo textual no painel de edição.
 
----
+### 5.4 Aplicações típicas
 
-## 6. Usar o GPS
+- Identificação de zonas de reunião
+- Sinalização de obstáculos contextuais
+- Marcação de meios de vigilância
+- Indicação de instruções temporais relativas
 
-Dois botões no canto superior direito do mapa.
-
-### Botão Principal (alvo)
-- **Toque curto** → fixa a tua posição actual uma vez (mostra ponto azul pulsante + círculo de precisão)
-- **Toque longo (manter pressionado ~1 segundo)** → modo tracking contínuo, segue-te em tempo real e desenha o teu percurso
-
-### Botão "Marcar a Minha Posição"
-- Cria automaticamente um marcador WPT na tua posição actual
-- Nome automático: `GPS-HHMM` (hora actual)
-
-### O Que Vês
-- **Ponto azul pulsante** na tua localização
-- **Círculo à volta** = margem de precisão (em metros)
-- **Tooltip** com altitude, velocidade (km/h) e direcção
-
-### Na Barra de Status
-Quando o GPS está activo e há pontos no mapa, aparece:
-> → NOME_PONTO 245m / 87°
-
-Indica o **ponto táctico mais próximo**, distância e direcção.
-
-### Importante Saber
-- O browser pede permissão na primeira vez — aceita
-- Em **smartphone/tablet** com vista para o céu: precisão de 5-15m
-- Em **desktop sem GPS**: precisão pode ser de centenas de metros (usa Wi-Fi/IP)
-- Se mudares de separador e voltares, o GPS retoma automaticamente sem novo pedido de permissão
+As anotações são integradas nas capturas de imagem e nos relatórios gerados.
 
 ---
 
-## 7. Calcular Rotas por Estrada
+## 6. Linha de Visão (LOS)
 
-A plataforma usa **OpenRouteService** para calcular rotas reais por estrada.
+Ferramenta de análise topográfica para determinação de visibilidade entre dois pontos, considerando o relevo do terreno.
 
-### Configuração Inicial (uma vez)
-1. Vai a [openrouteservice.org/dev](https://openrouteservice.org/dev)
-2. Cria conta gratuita
-3. Copia a tua **API key**
-4. Na plataforma, **botão direito** sobre o botão de routing (verde fluorescente na toolbar)
-5. Cola a chave e guarda
+### 6.1 Procedimento
 
-**Limite gratuito:** 1.000 rotas/dia (mais do que suficiente para uso normal).
+1. Activação do instrumento na barra de ferramentas;
+2. Primeiro clique: posição do observador;
+3. Segundo clique: posição do alvo;
+4. Aguardar consulta automática do perfil de elevação.
 
-### Calcular uma Rota
+### 6.2 Metodologia
 
-**Método 1 — Entre dois pontos quaisquer:**
-1. Clica no botão de routing
-2. Clica no ponto A
-3. Clica no ponto B
-4. Rota calculada e desenhada automaticamente
+A plataforma amostra trinta e dois pontos ao longo do segmento e consulta o serviço Open-Elevation para obtenção das altitudes correspondentes. É considerada uma altura adicional de 1,7 metros para o observador e para o alvo. Para cada ponto intermédio, a altura da linha directa entre observador e alvo é comparada com a altitude do terreno.
 
-**Método 2 — Da minha posição GPS até um marcador:**
-1. Activa o GPS (toque no botão GPS no canto)
-2. Clica num marcador qualquer
-3. No popup, clica em **"▶ ROTA DAQUI"** (botão verde fluorescente)
-4. Rota desde GPS até esse ponto, calculada e centrada no mapa
+### 6.3 Apresentação de resultados
 
-### O Que Vês
-- Linha verde fluorescente no caminho
-- Marcadores A (verde) e B (vermelho) nas extremidades
-- Etiqueta no meio: **"X km · Y min"**
-- Mapa centra-se automaticamente para mostrar toda a rota
+**Sem obstrução:** linha contínua a verde, com indicação da distância total e da folga mínima sobre o terreno.
 
-### Exportar/Importar Chave
-No popover da chave podes:
-- **Exportar** chave em ficheiro `.json` (para usar noutro dispositivo)
-- **Importar** chave a partir de ficheiro
+**Com obstrução:** linha tracejada a vermelho, marcação do primeiro ponto de obstrução e indicação da distância a que ocorre.
 
-### Mensagens de Erro
-- "Sem ligação à API" → verifica internet ou chave
-- "Chave inválida ou bloqueada" → re-verifica em openrouteservice.org
-- "Limite diário excedido" → atingiste 1000/dia, espera até amanhã
-- "Não encontrou rota" → pontos sem estradas acessíveis entre eles (ilha, deserto, etc.)
+O resultado é registado como medição persistente, sendo incluído nas exportações e relatórios.
 
 ---
 
-## 8. Análise Solar e Lunar
+## 7. Geolocalização (GPS)
 
-Saber posição do sol/lua, horários crepusculares, fases lunares.
+Dois controlos no canto superior direito do mapa permitem o uso de geolocalização.
 
-### Como Abrir
-- Botão "☀" na toolbar (cor ciano)
-- Atalho de teclado: **`L`**
+### 7.1 Modos de operação
 
-### Informação Apresentada
+**Toque curto** no controlo principal: fixação única da posição com indicador pulsante e círculo de precisão.
 
-**Sol:**
-- Hora do **nascer-do-sol**
-- Hora do **pôr-do-sol**
-- **Zénite** (sol no ponto mais alto)
-- **Azimute actual** (em que direcção está)
-- **Elevação** (altura no céu, em graus)
-- **Duração do dia**
+**Toque prolongado** (aproximadamente um segundo): activação do modo de seguimento contínuo, com registo do trajecto.
 
-**Lua:**
-- Nascer e pôr da lua
-- **Fase actual** (Nova, Crescente, Quarto Crescente, Cheia, Minguante, etc.)
-- **Iluminação** (% de superfície visível)
+**Marcação de posição:** controlo dedicado para criação imediata de waypoint na posição actual, designado automaticamente como `GPS-HHMM`.
 
-**Crepúsculos militares:**
-- **BMNT** (Beginning Morning Nautical Twilight): astronómico (-18°), náutico (-12°), civil (-6°)
-- **EENT** (End Evening Nautical Twilight): civil, náutico, astronómico
+### 7.2 Indicadores
 
-### Simular Outras Horas
+- Marcador azul pulsante na posição actual;
+- Círculo correspondente à precisão fornecida pelo dispositivo;
+- Tooltip com altitude, velocidade (km/h) e direcção;
+- Na barra de estado, com pontos no mapa, é apresentado o ponto táctico mais próximo, distância e azimute.
 
-Útil para planear operações em horários específicos.
+### 7.3 Considerações operacionais
 
-- **Slider** de 0 a 1439 minutos (de 00:00 a 23:55, em incrementos de 5 min)
-- **Botões rápidos**:
-  - **⏱ Hora actual**
-  - **☀ Nascer** (salta para o nascer-do-sol de hoje)
-  - **☾ Pôr** (salta para o pôr-do-sol)
-  - **☼ Zénite** (salta para meio-dia solar)
-- Quando movimentas o slider, **todos os valores recalculam em tempo real**
-- Indicador grande mostra:
-  - "AGORA · 14:32" (verde) → modo real-time
-  - "SIMULADO · 06:15" (âmbar) → modo simulação
-
-### Projectar no Mapa
-
-Botão **"Projectar no mapa"** dentro do painel desenha 3 linhas radiais a partir do centro do mapa:
-
-- **Linha tracejada âmbar** — direcção do nascer-do-sol
-- **Linha tracejada laranja** — direcção do pôr-do-sol
-- **Linha sólida amarela** — sol actual (apenas se acima do horizonte)
-
-Etiquetas dos valores em **branco fluorescente** para legibilidade. Em modo simulação, as linhas actualizam-se com a hora simulada.
+- A precisão típica em dispositivos móveis com vista ao céu é de 5 a 15 metros;
+- Em estações fixas sem GPS dedicado, a precisão pode degradar-se para escalas de centenas de metros, por dependência de triangulação Wi-Fi ou IP;
+- O acesso à geolocalização requer autorização do utilizador, solicitada pelo navegador no primeiro uso;
+- A interrupção de visibilidade da aplicação suspende o seguimento, sendo retomado automaticamente sem nova autorização.
 
 ---
 
-## 9. Análise por Inteligência Artificial
+## 8. Cálculo de Itinerários (ORS)
 
-Identifica automaticamente objectos visíveis no mapa (viaturas, edifícios, pessoas, etc.).
+Integração com o serviço OpenRouteService para cálculo de itinerários por rede viária.
 
-### Como Configurar
-- Botão "🔍" na toolbar (cor ciano)
-- Atalho: **`I`**
-- Escolhe um dos 5 providers e cola a chave gratuita:
-  - **Gemini** (Google) — gratuito, recomendado para começar
-  - **Groq** (LLaMA Vision) — gratuito, muito rápido
-  - **Mistral Pixtral** — gratuito
-  - **OpenRouter** — múltiplos modelos
-  - **Claude** (Anthropic)
+### 8.1 Configuração
 
-### Como Usar
-1. Configura tipos de objectos a procurar (viaturas, edifícios, pessoas...)
-2. Clica **"Iniciar Scan"**
-3. A IA analisa a vista actual do mapa
-4. Aparecem caixas coloridas a destacar cada objecto detectado
-5. Painel lateral mostra lista com nível de confiança
-6. Podes converter qualquer detecção em ponto táctico oficial
+A utilização requer uma chave de acesso, obtida gratuitamente em `openrouteservice.org/dev`. O limite gratuito é de mil pedidos por dia.
 
-As chaves API ficam guardadas localmente — não precisas de re-introduzir.
+A configuração da chave é feita através do menu contextual (botão direito) sobre o controlo de itinerários na barra de ferramentas.
 
----
+### 8.2 Procedimentos de cálculo
 
-## 10. Trabalhar Offline (Sem Internet)
+**Itinerário entre dois pontos arbitrários:**
+1. Activação do instrumento;
+2. Selecção do ponto de origem;
+3. Selecção do ponto de destino.
 
-A plataforma continua a funcionar sem internet — desde que tenhas pré-descarregado os tiles de mapa que precisas.
+**Itinerário desde a posição actual até um marcador:**
+1. Activação do GPS;
+2. Selecção do marcador de destino;
+3. Activação da opção "Rota Daqui" no popup.
 
-### Cache Automática
+### 8.3 Apresentação
 
-Tudo o que vês durante o uso normal é **automaticamente guardado**. Se voltares offline depois, esses pedaços de mapa continuam a aparecer.
+O itinerário é representado por uma linha a verde fluorescente, com marcadores nas extremidades e etiqueta central indicando distância em quilómetros e tempo estimado em minutos. A vista é automaticamente ajustada para visualização integral.
 
-Indicador no canto inferior:
-- 🟢 **ONLINE** (verde) — tens internet
-- 🔴 **OFFLINE** (vermelho pulsante) — sem internet
+### 8.4 Permuta de chaves
 
-Contador "CACHE: N" mostra quantos pedaços de mapa tens guardados.
+A chave de acesso pode ser exportada em formato JSON e importada em estações distintas, facilitando a configuração coordenada de equipas.
 
-### Descarregar uma Área para Uso Offline
+### 8.5 Códigos de erro
 
-Para preparar uma operação onde sabes que não vais ter internet:
-
-1. Clica no botão **"Download Área"** na toolbar (cor ciano, ícone de seta para baixo)
-2. **Clica e arrasta** no mapa para desenhar um rectângulo na área que queres
-3. Aparece um modal com:
-   - Tamanho da área seleccionada
-   - **Slider zoom mínimo / máximo** (recomendado: 13-17 para uso urbano, 11-14 para áreas extensas)
-   - **6 tipos de mapa** seleccionáveis (apenas open-source — Google e Bing não são permitidos descarregar em massa)
-   - **Estimativa**: número de tiles + MB
-   - Aviso a vermelho se for muito grande (>50.000 tiles)
-4. Clica **"Iniciar Download"**
-5. Modal de progresso mostra X / Y, velocidade
-6. Podes cancelar a meio (o que já foi guardado mantém-se)
-
-### Limpar Cache
-
-Botão vermelho "Limpar Cache" — apaga **todos** os tiles guardados (com confirmação).
-
-### O Que Funciona Offline
-- Navegação no mapa (áreas em cache)
-- Criar/editar pontos tácticos
-- Fazer medições
-- Adicionar comentários
-- Guardar e exportar KMZ/KML
-- Gerar relatórios PDF e Word
-
-### O Que Não Funciona Offline
-- AI Scan (precisa do servidor de IA)
-- Routing ORS (precisa do OpenRouteService)
-- Pesquisa de moradas
-- Altitude automática
+| Mensagem | Causa | Acção |
+|---|---|---|
+| Sem ligação à API | Indisponibilidade de rede | Verificar conectividade |
+| Chave inválida ou bloqueada | Credencial inactiva | Reverificar em openrouteservice.org |
+| Limite diário excedido | Mil pedidos atingidos | Aguardar reposição diária |
+| Não encontrou rota | Pontos sem rede viária acessível | Reposicionar pontos |
 
 ---
 
-## 11. Guardar e Partilhar (Importar/Exportar)
+## 9. Análise Solar e Lunar
 
-### KMZ / KML
+Painel de informação astronómica com cálculo de ascensão solar, ocaso, posições orbitais e fases lunares.
 
-**Formato universal** compatível com Google Earth, Google Maps, QGIS, ATAK, JCATS, e qualquer software cartográfico moderno.
+### 9.1 Acesso
 
-**Exportar:**
-- Botão verde **"↓ KMZ"** ou **"↓ KML"** na toolbar
-- Gera um ficheiro com **todos os pontos, medições e comentários** organizados em pastas
+Controlo "☀" na barra de ferramentas. Atalho: tecla `L`.
 
-**Importar:**
-- Botão azul **"↑ KMZ"** na toolbar
-- Selecciona ficheiro `.kmz` ou `.kml`
-- Pontos e medições aparecem no mapa imediatamente
+### 9.2 Informação solar
 
-### Persistência Automática
+- Hora do nascer-do-sol
+- Hora do pôr-do-sol
+- Hora do zénite (passagem meridiana)
+- Azimute solar para o instante de referência
+- Elevação solar para o instante de referência
+- Duração do dia
 
-Tudo o que fazes é **guardado automaticamente** no teu browser. Se fechares acidentalmente:
-- Reabre a plataforma
-- Aparece prompt: *"Foi encontrado trabalho não guardado (há X minutos): N pontos, M medições, K notas. Queres restaurar?"*
-- Aceita → tudo volta exactamente como estava
+### 9.3 Informação lunar
+
+- Hora do nascer da lua
+- Hora do pôr da lua
+- Fase lunar nominal
+- Percentagem de iluminação
+
+### 9.4 Crepúsculos militares
+
+- BMNT (Beginning Morning Nautical Twilight): astronómico (-18°), náutico (-12°), civil (-6°)
+- EENT (End Evening Nautical Twilight): civil, náutico, astronómico
+
+### 9.5 Simulação temporal
+
+Interface dedicada à projecção de condições astronómicas em horários específicos:
+
+- Cursor de minutos do dia (resolução de cinco minutos);
+- Botões dedicados para fixação imediata em hora actual, nascer-do-sol, pôr-do-sol e zénite;
+- Indicação visual distinta entre modo real-time (verde) e modo simulação (âmbar);
+- Recálculo dos valores de azimute e elevação em conformidade com o instante seleccionado.
+
+### 9.6 Projecção cartográfica
+
+A activação do modo de projecção apresenta no mapa três vectores radiais a partir do centro da vista:
+
+- Vector tracejado âmbar: azimute do nascer-do-sol;
+- Vector tracejado laranja: azimute do pôr-do-sol;
+- Vector contínuo amarelo: azimute solar para o instante de referência (real ou simulado);
+
+Em modo simulação, o vector solar é apresentado mesmo quando a elevação é negativa, com cor cinzenta e tracejado, indicando a posição do astro abaixo do horizonte.
+
+As etiquetas dos valores são apresentadas em branco fluorescente para legibilidade uniforme sobre qualquer base cartográfica.
 
 ---
 
-## 12. Gerar Relatórios
+## 10. Análise por Inteligência Artificial
 
-A plataforma gera relatórios profissionais com a tua identidade GIOE/ISEOP automaticamente aplicada.
+Identificação automática de objectos através de processamento de imagem por modelos de visão.
 
-### Relatório de Missão (PDF Completo)
+### 10.1 Provedores suportados
 
-Botão **"↓ RELATÓRIO COMPLETO + MAPA PDF"** no painel lateral. Gera 7 páginas:
+- Gemini (Google) — gratuito, recomendado para utilização inicial
+- Groq (LLaMA Vision) — gratuito, latência reduzida
+- Mistral Pixtral — gratuito
+- OpenRouter — meta-provedor com múltiplos modelos
+- Claude (Anthropic)
 
-1. **Capa** — banner colorido do perfil, classificação SEGNAC, data e hora
-2. **Sumário Executivo** — número de pontos, medições, alvos, prioridades
-3. **Captura do Mapa** — imagem alta resolução com tudo o que está visível
-4. **Tabela de Pontos** — designação, tipo, coordenadas, prioridade, estado, notas
-5. **Medições** — distâncias, áreas, raios, etc.
-6. **Análise IA** (se houver detecções)
-7. **Aprovação** — 3 linhas para assinaturas (Operador, Comandante, Comando)
+### 10.2 Procedimento
 
-### Ficha de Alvo (PDF)
+1. Activação do instrumento na barra de ferramentas (atalho `I`);
+2. Selecção do provedor e introdução da credencial;
+3. Configuração das categorias de objectos a identificar;
+4. Execução da análise.
 
-Botão **"↓ FICHA PDF"** no painel do alvo seleccionado.
+### 10.3 Apresentação de resultados
 
-Específico para tipo TGT, inclui:
-- Identificação do alvo
-- Nível de ameaça (CRÍTICO/ALTO/MÉDIO/BAIXO) com cor
-- Inteligência disponível
-- **ROE** (Rules of Engagement)
+Os objectos identificados são representados no mapa por caixas delimitadoras coloridas. O painel lateral apresenta a lista de detecções com indicação do nível de confiança. Cada detecção pode ser convertida em ponto táctico formal.
+
+As credenciais são persistidas localmente.
+
+---
+
+## 11. Operação em Modo Offline
+
+A plataforma mantém capacidade operacional plena sem ligação à rede, condicionada à pré-aquisição da cartografia da área de interesse.
+
+### 11.1 Cache automática
+
+Toda a cartografia visualizada é progressivamente acumulada em cache local. A presença ou ausência de ligação é indicada na barra de estado:
+
+- ONLINE — disponibilidade de rede confirmada;
+- OFFLINE — sem disponibilidade de rede.
+
+Um contador apresenta o volume de elementos cartográficos em cache.
+
+### 11.2 Aquisição deliberada de área
+
+Para preparação de operações em zonas com cobertura de rede limitada:
+
+1. Activação do instrumento "Download Área";
+2. Definição rectangular da zona de interesse no mapa;
+3. Configuração dos parâmetros:
+   - Níveis de zoom (recomendado: 13–17 para uso urbano, 11–14 para zonas extensas);
+   - Selecção das fontes cartográficas (apenas fontes abertas);
+4. Confirmação e monitorização do progresso.
+
+A aquisição pode ser interrompida sem perda dos elementos já adquiridos.
+
+### 11.3 Limpeza de cache
+
+Acção dedicada para eliminação total do conteúdo em cache, com confirmação prévia.
+
+### 11.4 Funcionalidades offline
+
+| Funcionalidade | Disponibilidade offline |
+|---|---|
+| Cartografia em cache | Disponível |
+| Pontos tácticos e medições | Disponível |
+| Caixas de comentário | Disponível |
+| Permuta KMZ/KML | Disponível |
+| Geração de relatórios | Disponível |
+| Análise IA | Indisponível |
+| Itinerários ORS | Indisponível |
+| Linha de visão | Indisponível |
+| Meteorologia | Indisponível |
+
+---
+
+## 12. Timeline Operacional
+
+Painel para definição cronológica de eventos sincronizados em torno de uma hora de referência (H-hour).
+
+### 12.1 Acesso
+
+Controlo dedicado na barra de ferramentas. Apresenta janela modal com cronograma horizontal e lista editável de eventos.
+
+### 12.2 Estrutura de cada evento
+
+| Campo | Descrição |
+|---|---|
+| Offset | Minutos relativos a H-hour. Valores negativos indicam momentos anteriores |
+| Etiqueta | Designação curta do evento |
+| Equipa | Identificação da equipa responsável |
+| Ponto ligado | Associação a um marcador táctico do mapa |
+| Descrição | Detalhe operacional |
+
+### 12.3 Cronograma horizontal
+
+Visualização gráfica com:
+
+- Marcador vertical vermelho na posição H-hour;
+- Pontos coloridos para cada evento (âmbar quando associado a equipa, ciano caso contrário);
+- Etiquetas de offset em formato relativo (H-30, H+15, H+1h:30).
+
+### 12.4 Acções sobre eventos
+
+- Centragem da vista no marcador associado;
+- Edição directa de qualquer campo;
+- Eliminação individual de eventos;
+- Reordenação automática por offset.
+
+### 12.5 Persistência
+
+Os eventos são integrados no histórico de gravação automática, suportando reversão e restauro.
+
+---
+
+## 13. Camadas Operacionais
+
+Sistema de gestão de visibilidade e opacidade por categoria semântica, permitindo focar a apresentação em subconjuntos específicos da informação operacional.
+
+### 13.1 Categorias
+
+| Categoria | Conteúdo |
+|---|---|
+| Inteligência | TGT, SUS, HOS, VIP |
+| Equipas Amigas | FRP, PC, PAT, GIO, GIP, SNP, STK, BRE, K9, EOD, NEG, DRN |
+| Logística | CCP, SUP, COM, HLZ |
+| Manobra | WPT, OP, BP, CP, OBJ, INF, EXF |
+| Especial | VEH, TVE, HZD |
+| Medições | Todas as medições registadas |
+| Comentários | Todas as caixas de comentário |
+
+### 13.2 Controlos por categoria
+
+- Comutador de visibilidade;
+- Cursor de opacidade (0% a 100%);
+- Indicador da quantidade de elementos na categoria.
+
+### 13.3 Aplicações
+
+- Briefings sequenciais com revelação progressiva de informação;
+- Análise focada num subconjunto específico (ex: apenas equipas amigas);
+- Atenuação de elementos não-essenciais para destaque dos relevantes.
+
+---
+
+## 14. Análise Meteorológica
+
+Integração com OpenWeatherMap para obtenção de condições meteorológicas e previsão.
+
+### 14.1 Configuração
+
+Requer chave de acesso, obtida gratuitamente em `openweathermap.org/api`. Limite gratuito: sessenta pedidos por minuto.
+
+### 14.2 Informação apresentada
+
+**Condições actuais:**
+- Temperatura
+- Sensação térmica
+- Vento (velocidade, direcção em graus, ponto cardeal)
+- Humidade relativa
+- Pressão atmosférica
+- Visibilidade
+- Nebulosidade
+- Precipitação acumulada na última hora
+
+**Previsão:**
+- Cinco dias subsequentes
+- Temperatura, ícone meteorológico e descrição para cada dia
+
+### 14.3 Aplicações operacionais
+
+A informação meteorológica é determinante para:
+
+- Planeamento de operações com meios aéreos (drones, helicópteros);
+- Avaliação de visibilidade para operações de observação;
+- Dimensionamento de equipamento térmico das equipas;
+- Análise de impacto ambiental sobre dispersão acústica e olfactiva.
+
+---
+
+## 15. Modo Briefing
+
+Configuração de apresentação que oculta a interface administrativa, mantendo apenas a área cartográfica em ecrã completo.
+
+### 15.1 Activação
+
+Controlo dedicado na barra de ferramentas. A activação:
+
+- Oculta a barra superior, painéis laterais e barra de estado;
+- Expande a vista cartográfica para a totalidade do ecrã;
+- Apresenta um controlo discreto de saída no canto superior direito.
+
+### 15.2 Saída do modo
+
+- Selecção do controlo de saída;
+- Tecla `Escape`.
+
+### 15.3 Aplicação típica
+
+Apresentações em sala de operações ou briefings a equipas, mantendo a interactividade de navegação cartográfica.
+
+---
+
+## 16. Permuta de Dados (KMZ/KML)
+
+Suporte aos formatos KMZ e KML para interoperabilidade com sistemas externos.
+
+### 16.1 Compatibilidade
+
+- Google Earth, Google My Maps
+- QGIS
+- ATAK (Android Tactical Assault Kit)
+- JCATS
+- Software cartográfico genérico
+
+### 16.2 Conteúdo exportado
+
+- Pontos tácticos com simbologia, atributos e estados
+- Medições geométricas
+- Caixas de comentário
+- Estrutura organizada em pastas por categoria
+
+### 16.3 Persistência local
+
+A totalidade da sessão é gravada automaticamente em armazenamento local. No arranque seguinte, é apresentada a possibilidade de restauro do estado anterior.
+
+---
+
+## 17. Geração de Relatórios
+
+A plataforma produz documentação operacional em formato PDF e Word, com identidade gráfica adaptada ao perfil seleccionado.
+
+### 17.1 Relatório de Missão (PDF)
+
+Documento estruturado em sete secções:
+
+1. Capa com classificação SEGNAC e identificação do perfil
+2. Sumário executivo com indicadores quantitativos
+3. Captura cartográfica em alta resolução
+4. Inventário detalhado de pontos tácticos
+5. Inventário de medições
+6. Resultados de análise por inteligência artificial (quando aplicável)
+7. Bloco de validação e aprovação com três campos de assinatura
+
+### 17.2 Ficha de Alvo (PDF)
+
+Documento focado em alvo específico (tipo TGT), incluindo:
+
+- Identificação completa
+- Avaliação de ameaça (Crítica, Alta, Média, Baixa)
+- Síntese de inteligência disponível
+- ROE (Rules of Engagement)
 - Janela operacional
-- Aprovação com 3 assinaturas
-- Aviso de classificação SEGNAC 1
+- Bloco de aprovação
+- Classificação SEGNAC 1
 
-### Versão Word (`.doc`)
+### 17.3 Versão Word
 
-Ao lado dos botões PDF tens **"↓ WORD"** — gera o mesmo conteúdo em formato editável.
+Equivalente em formato editável (.doc) para revisão prévia à validação. Compatível com Microsoft Word, LibreOffice e Google Docs.
 
-Vantagens do Word:
-- Podes **editar** depois (adicionar parágrafos, comentários)
-- Abre no MS Word, LibreOffice, Google Docs
-- Útil para revisão por superiores antes de imprimir
-
-### Personalização Automática
+### 17.4 Aplicação da identidade
 
 | Elemento | GIOE | ISEOP |
 |---|---|---|
-| Cor do banner | Vermelho | Verde |
-| Logo grande | "GIOE" | "ISEOP" |
-| Subtítulo | "Grupo de Intervenção de Operações Especiais" | "Intervenção em Situações Especiais de Ordem Pública" |
-| Nome do ficheiro | `GIOE_RelMissao_NOME_DATA.pdf` | `ISEOP_...` |
+| Cor de cabeçalho | Vermelho | Verde |
+| Designação completa | Grupo de Intervenção de Operações Especiais | Intervenção em Situações Especiais de Ordem Pública |
+| Prefixo de ficheiro | GIOE_ | ISEOP_ |
 
 ---
 
-## 13. Capturar Imagem do Mapa
+## 18. Captura de Imagem do Mapa
 
-Botão verde com ícone de **câmara fotográfica** na toolbar.
+Geração de imagem em formato PNG com a totalidade do conteúdo cartográfico visível.
 
-### O Que Faz
-Tira uma "fotografia" da vista actual do mapa em **alta resolução**, incluindo:
-- Mapa base (qualquer tipo)
-- Todos os pontos tácticos
-- Todas as medições
+### 18.1 Conteúdo capturado
+
+- Cartografia base seleccionada
+- Pontos tácticos e respectivos atributos visuais
+- Medições e suas etiquetas
 - Caixas de comentário
-- Quadrícula MGRS (se activa)
-- GPS marker (se activo)
-- Rotas calculadas
+- Quadrícula militar (quando activa)
+- Marcador GPS (quando activo)
+- Itinerários ORS calculados
 
-### Resolução
-- **Triplica a resolução do ecrã** — num ecrã 1920×1080 obtém 5760×3240 pixels (qualidade ~6K)
-- Texto e linhas extra-nítidas
-- Formato PNG, máxima qualidade
+### 18.2 Características técnicas
 
-### Output
-- Ficheiro descarrega automaticamente: `GIOE_MapaCaptura_DATA-HORA.png`
-- Captura **pura**, sem watermarks ou banners
-- Pronto para usar em apresentações, briefings, anexos a relatórios
+- Resolução triplicada relativamente à do ecrã (5760×3240 px num ecrã FullHD)
+- Renderização vectorial de texto e linhas
+- Qualidade PNG máxima
+- Ausência de marcas de água ou sobreposições
 
----
+### 18.3 Nomenclatura
 
-## 14. Desfazer Acções
+`PERFIL_MapaCaptura_AAAA-MM-DDTHH-MM-SS.png`
 
-A plataforma guarda as últimas **30 acções** que fizeste.
-
-### Como Desfazer
-- **Ctrl+Z** (Windows/Linux) ou **Cmd+Z** (Mac)
-- Botão "Undo" (seta) na toolbar
-
-### O Que Pode Ser Desfeito
-- Criar ponto
-- Editar ponto
-- Eliminar ponto
-- Adicionar medição
-- Limpar todas as medições
-- Criar/editar/eliminar comentário
-- Mover marker
-
-### Notificação
-Cada desfazer mostra: *"✓ Desfeito"* ou nome da acção que reverteu.
+Formato adequado para inclusão em apresentações, briefings e anexos a relatórios.
 
 ---
 
-## 15. Atalhos Rápidos
+## 19. Histórico e Reversão de Acções
+
+A plataforma mantém um histórico das últimas trinta acções realizadas.
+
+### 19.1 Activação
+
+- Combinação de teclas `Ctrl+Z` (Windows/Linux) ou `Cmd+Z` (macOS);
+- Controlo dedicado na barra de ferramentas.
+
+### 19.2 Acções suportadas
+
+- Criação, edição e remoção de pontos
+- Registo de medições
+- Limpeza de medições
+- Criação, edição e remoção de caixas de comentário
+- Reposicionamento de marcadores
+- Adição, edição e remoção de eventos timeline
+
+Cada acção revertida apresenta notificação identificativa.
+
+---
+
+## 20. Atalhos de Teclado
 
 | Tecla | Acção |
 |---|---|
-| **Ctrl+Z** / **Cmd+Z** | Desfazer última acção |
-| **Q** | Mostrar/ocultar quadrícula MGRS |
-| **O** | Activar ferramenta de routing |
-| **L** | Abrir painel Sol/Lua |
-| **I** | Abrir AI Scan |
-| **TAB** | Mostrar/ocultar painel lateral |
-| **Enter** | Terminar medição em curso (régua, área, rota) |
-| **Esc** | Cancelar acção em curso |
+| `Ctrl+Z` / `Cmd+Z` | Reverter última acção |
+| `Q` | Comutar quadrícula militar |
+| `O` | Activar instrumento de itinerários |
+| `L` | Abrir painel astronómico |
+| `I` | Abrir análise por IA |
+| `TAB` | Comutar painel lateral |
+| `Enter` | Finalizar medição em curso |
+| `Esc` | Cancelar acção em curso ou sair do modo briefing |
 
 ---
 
-## 16. Usar em Telemóvel ou Tablet
+## 21. Operação em Dispositivos Móveis
 
-A plataforma funciona em qualquer dispositivo moderno.
+A plataforma adapta-se a dispositivos com diferentes formatos.
 
-### Em Telemóvel (ecrã pequeno)
-- Sidebar e painel lateral aparecem como **overlays** sobre o mapa
-- Botões mais espaçados para toque (40×40 pixels mínimo)
-- Status bar mais compacta
-- Botões "**☰ PONTOS**" e "**⊞ PAINEL**" no centro inferior para abrir/fechar
+### 21.1 Dispositivos móveis (ecrã reduzido)
 
-### Em Tablet (médio)
-- Pode ser usado em **modo desktop** (interface completa)
-- Ou activar **modo móvel** se preferires overlay (botão dedicado)
+- Painéis em sobreposição não-intrusiva
+- Controlos dimensionados para interacção táctil (mínimo 40×40 px)
+- Barra de estado em formato condensado
+- Acessos rápidos a "Pontos" e "Painel" no rodapé
 
-### Touchscreen
-- **Toque** = clique
-- **Toque longo** = botão direito do rato (menu de contexto)
-- **Pinch** = zoom
-- **Arrastar com 2 dedos** = pan
+### 21.2 Tablets
 
-### GPS em Tablet/Telemóvel
-Aproveita melhor o GPS verdadeiro do dispositivo:
-- Precisão real de 5-15 metros (com céu visível)
-- Útil para operadores no terreno
-- Tracking contínuo segue-te em movimento
+- Suporte ao modo desktop completo
+- Comutação opcional para modo móvel
 
----
+### 21.3 Interacção táctil
 
-## 17. Personalização Visual
+| Gesto | Acção equivalente |
+|---|---|
+| Toque | Selecção (clique esquerdo) |
+| Toque prolongado | Menu contextual (clique direito) |
+| Pinça | Zoom |
+| Arrastamento com dois dedos | Deslocação do mapa |
 
-### Modo Escuro (default)
-- Tons cinzentos neutros estilo Chrome Dark Mode
-- Texto branco-suave
-- Acentos coloridos por funcionalidade
+### 21.4 Geolocalização em mobilidade
 
-### Modo Claro
-- Toggle no canto da barra de status (ícone sol/lua)
-- Cores claras para uso em ambiente bem iluminado
-
-### Cores dos Botões da Toolbar (por categoria)
-- **Cinzento** — ferramentas básicas (régua, área, círculo, etc.)
-- **Âmbar** — objectos especiais (barreira, comentário)
-- **Ciano** — utilitários (sol/lua, IA, download)
-- **Verde fluorescente** — routing
-- **Verde** — exportação (KMZ, KML, PNG)
-- **Azul** — importação
-- **Vermelho** — acções destrutivas (limpar)
+Os dispositivos móveis aproveitam o GPS interno, com precisão típica de 5 a 15 metros, sendo recomendados para utilização em terreno.
 
 ---
 
-## 18. Dicas e Boas Práticas
+## 22. Configuração Visual
 
-### Para Planeamento
-1. Começa com **Satélite** para identificar a zona
-2. Marca **TGT** (alvos), **OBJ** (objectivos), **HZD** (perigos) primeiro
-3. Adiciona **WPT** ou **CP** para pontos de passagem
-4. Usa **medições** (distâncias, raios) para validar planos
-5. Adiciona **comentários** com informação contextual
-6. Gera **PDF de relatório** para briefing
+### 22.1 Tema escuro (configuração padrão)
 
-### Para Operação no Terreno
-1. **Antes de sair** (com internet): descarrega a área da operação para offline
-2. **Activa o GPS** ao chegar
-3. Usa **toque longo** no GPS para tracking contínuo
-4. **Marca posição** com o botão dedicado para criar WPT rápido
-5. **Comentários** vermelhos para alertas, brancos para notas neutras
-6. Antes de regressar: **captura PNG** da situação final
+- Paleta neutra em tons de cinzento
+- Texto principal em branco-suave
+- Realces cromáticos diferenciados por função
 
-### Para Briefings
-- Gera **PDF de Missão** com mapa de alta resolução
-- Use **PNG** separado para slides/apresentações
-- **Ficha de Alvo** específica para cada TGT crítico
-- **Versão Word** se prevês edições antes de imprimir
+### 22.2 Tema claro
 
-### Para Partilhar com Outras Equipas
-- Exporta em **KMZ** — abre em Google Earth, ATAK, qualquer plataforma
-- Exporta também em **PDF** para revisão sem necessidade de software técnico
-- Partilha **chave ORS** em formato JSON para terem o mesmo routing
+- Comutação através do controlo na barra de estado
+- Indicado para utilização em ambientes com forte iluminação
+
+### 22.3 Cromatismo da barra de ferramentas
+
+| Categoria | Cor | Exemplos |
+|---|---|---|
+| Ferramentas básicas | Cinzento | Régua, área, círculo, azimute |
+| Objectos especiais | Âmbar | Barreira, comentário |
+| Análise | Ciano | Linha de visão, timeline, briefing, camadas, meteorologia, sol/lua, IA, descarregamento |
+| Itinerários | Verde fluorescente | ORS |
+| Exportação | Verde | KMZ, KML, PNG |
+| Importação | Azul | KMZ/KML |
+| Acções destrutivas | Vermelho | Limpeza |
 
 ---
 
-## 19. Resolver Problemas Comuns
+## 23. Procedimento Operacional Recomendado
 
-**O mapa fica cinzento ao mover:** Estás offline e essa área não foi descarregada. Volta para uma zona em cache ou liga internet.
+### 23.1 Fase de planeamento
 
-**GPS pede permissão sempre:** Garante que estás em HTTPS. Em modo anónimo/incógnito, browsers nunca guardam permissões.
+1. Selecção do perfil operacional;
+2. Posicionamento na zona de operação através da camada satélite;
+3. Aquisição da área para operação offline (se aplicável);
+4. Marcação dos elementos críticos (TGT, OBJ, HZD);
+5. Marcação dos elementos de apoio (WPT, CP, INF, EXF);
+6. Validação geométrica através das ferramentas de medição;
+7. Análise de linha de visão entre pontos críticos;
+8. Definição da timeline operacional com sincronização de equipas;
+9. Verificação das condições astronómicas e meteorológicas para a janela operacional;
+10. Anotação contextual através de caixas de comentário;
+11. Geração do relatório de missão.
 
-**Routing falha:** Verifica chave ORS (botão direito no botão de routing). Pode ter expirado ou atingiste o limite diário (1.000/dia).
+### 23.2 Fase de execução
 
-**Captura PNG vem em branco:** Aguarda alguns segundos para os tiles carregarem antes de capturar. Não capturar imediatamente após mudar de tipo de mapa.
+1. Activação da geolocalização;
+2. Activação do modo de seguimento contínuo;
+3. Anotação dinâmica de observações e ajustes;
+4. Captura de imagem do estado final.
 
-**Esqueci-me de guardar e fechei:** Reabre — vai aparecer prompt para restaurar (autosave guarda os últimos minutos automaticamente).
+### 23.3 Fase de partilha e arquivo
 
-**Quero apagar tudo e começar do zero:** Limpa o cache do browser para o domínio, ou usa o botão "Limpar Cache" + remove pontos/medições manualmente.
+1. Exportação em formato KMZ para distribuição inter-equipas;
+2. Exportação em formato PDF para arquivo formal;
+3. Anexação da captura PNG a apresentações de pós-operação.
 
 ---
 
-## 20. Fluxo Recomendado para Nova Operação
+## 24. Resolução de Anomalias
 
-1. **Selecciona perfil** (GIOE / ISEOP)
-2. **Navega** até à zona da operação no mapa
-3. **Descarrega área** para offline (se vais para o terreno)
-4. **Cria pontos tácticos** começando pelos críticos (TGT, OBJ)
-5. **Adiciona medições** (distâncias, raios de cobertura)
-6. **Anota comentários** sobre observações
-7. **Confere posição solar** se relevante para timing
-8. **Gera relatório PDF** ou **captura PNG**
-9. **Exporta KMZ** para partilhar com outras equipas
-10. **Sai com confiança** — tudo está autogravado
+| Sintoma | Causa provável | Acção |
+|---|---|---|
+| Área cartográfica em cinza | Sem ligação e fora da cache | Voltar a área em cache ou restabelecer ligação |
+| Solicitação repetida de geolocalização | Ausência de HTTPS ou modo anónimo | Aceder via HTTPS e fora de modo anónimo |
+| Falha em itinerário ORS | Credencial inválida ou limite atingido | Verificar credencial; aguardar reposição diária |
+| Captura PNG sem cartografia | Tiles não totalmente carregados | Aguardar antes de capturar |
+| Trabalho perdido após fecho | — | Restauro automático ao reabrir, com confirmação |
+| Repor estado inicial | — | Limpeza de cache do navegador para o domínio |
 
 ---
 
