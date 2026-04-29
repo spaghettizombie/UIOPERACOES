@@ -17,7 +17,7 @@ Documento técnico-operacional destinado a operadores, analistas e oficiais resp
 9. [Análise Solar e Lunar](#9-análise-solar-e-lunar)
 10. [Análise por Inteligência Artificial](#10-análise-por-inteligência-artificial)
 11. [Operação em Modo Offline](#11-operação-em-modo-offline)
-12. [Timeline Operacional](#12-timeline-operacional)
+12. [Timeline Operacional e Reprodução Cinemática](#12-timeline-operacional-e-reprodução-cinemática)
 13. [Camadas Operacionais](#13-camadas-operacionais)
 14. [Análise Meteorológica](#14-análise-meteorológica)
 15. [Modo Briefing](#15-modo-briefing)
@@ -287,26 +287,71 @@ As anotações são integradas nas capturas de imagem e nos relatórios gerados.
 
 ## 6. Linha de Visão (LOS)
 
-Ferramenta de análise topográfica para determinação de visibilidade entre dois pontos, considerando o relevo do terreno.
+Ferramenta de análise topográfica para determinação de visibilidade entre dois pontos, considerando o relevo do terreno. A plataforma suporta dois provedores de dados de elevação digital, seleccionáveis pelo operador conforme disponibilidade e necessidades de precisão.
 
 ### 6.1 Procedimento
 
 1. Activação do instrumento na barra de ferramentas;
-2. Primeiro clique: posição do observador;
+2. Primeiro clique: posição do observador (marcador ciano confirma);
 3. Segundo clique: posição do alvo;
-4. Aguardar consulta automática do perfil de elevação.
+4. Aguardar consulta automática do perfil de elevação ao provedor configurado.
 
-### 6.2 Metodologia
+### 6.2 Selecção de Provedor
 
-A plataforma amostra trinta e dois pontos ao longo do segmento e consulta o serviço Open-Elevation para obtenção das altitudes correspondentes. É considerada uma altura adicional de 1,7 metros para o observador e para o alvo. Para cada ponto intermédio, a altura da linha directa entre observador e alvo é comparada com a altitude do terreno.
+A activação do botão direito sobre o controlo de Linha de Visão apresenta um popover de configuração com dois provedores disponíveis:
 
-### 6.3 Apresentação de resultados
+#### Open-Elevation (provedor pré-definido)
 
-**Sem obstrução:** linha contínua a verde, com indicação da distância total e da folga mínima sobre o terreno.
+- Serviço público gratuito, sem necessidade de chave de acesso;
+- Pode apresentar instabilidade ocasional ou indisponibilidade temporária;
+- Adequado para utilização esporádica e de baixo volume.
 
-**Com obstrução:** linha tracejada a vermelho, marcação do primeiro ponto de obstrução e indicação da distância a que ocorre.
+#### OpenTopoData
 
-O resultado é registado como medição persistente, sendo incluído nas exportações e relatórios.
+- Serviço público gratuito, mais estável e com maior fiabilidade operacional;
+- Limite gratuito de mil pedidos por dia;
+- Permite selecção do dataset de elevação, com diferentes características de cobertura e precisão:
+
+| Dataset | Resolução | Cobertura | Observações |
+|---|---|---|---|
+| SRTM 30m | 30 metros | Global | Padrão de referência, recomendado |
+| SRTM 90m | 90 metros | Global | Mais rápido, menor precisão |
+| EU-DEM 25m | 25 metros | Europa | Maior precisão para território europeu |
+| ASTER 30m | 30 metros | Global | Alternativa ao SRTM |
+| Mapzen | Variável | Global | Combina múltiplas fontes |
+
+- Suporta chave API opcional para utilização em planos premium (volumes superiores ao limite gratuito).
+
+A selecção é mantida em armazenamento local e persiste entre sessões.
+
+### 6.3 Gestão de Configuração
+
+O popover de configuração disponibiliza acções de exportação e importação:
+
+- **Exportação:** geração de ficheiro JSON com a configuração actual (provedor, dataset, chave). Adequado para distribuição uniforme entre estações de uma mesma equipa;
+- **Importação:** carregamento de configuração a partir de ficheiro JSON previamente exportado.
+
+A nomenclatura do ficheiro exportado segue o formato `PERFIL_los-config_AAAA-MM-DD.json`.
+
+### 6.4 Metodologia
+
+A plataforma amostra trinta e três pontos ao longo do segmento entre o observador e o alvo, consultando o provedor seleccionado para obtenção das altitudes correspondentes em cada amostra. É considerada uma altura adicional de 1,7 metros (estatura média de operador em pé) para o observador e para o alvo. Para cada ponto intermédio, a altura da linha directa entre observador e alvo é comparada com a altitude do terreno nesse mesmo ponto.
+
+### 6.5 Apresentação de resultados
+
+**Sem obstrução:** linha contínua a verde, com indicação da distância total e da folga mínima sobre o terreno (em metros).
+
+**Com obstrução:** linha tracejada a vermelho, marcação do primeiro ponto de obstrução com indicador circular vermelho, e indicação da distância a que ocorre a obstrução.
+
+O resultado é registado como medição persistente do tipo `LOS`, sendo incluído nas exportações (KMZ, KML) e nos relatórios gerados.
+
+### 6.6 Considerações operacionais
+
+- A análise depende de ligação à internet activa para consulta da API de elevação;
+- Em caso de falha do provedor Open-Elevation, é apresentada notificação a sugerir a alternância para OpenTopoData;
+- Os dados topográficos têm resolução variável conforme o dataset seleccionado e a região;
+- A análise considera apenas obstruções topográficas, não detectando edifícios, árvores ou estruturas artificiais;
+- Para análises críticas, recomenda-se confirmação por reconhecimento visual ou ferramentas especializadas.
 
 ---
 
@@ -504,13 +549,17 @@ Acção dedicada para eliminação total do conteúdo em cache, com confirmaçã
 
 ---
 
-## 12. Timeline Operacional
+## 12. Timeline Operacional e Reprodução Cinemática
 
-Painel para definição cronológica de eventos sincronizados em torno de uma hora de referência (H-hour).
+Painel para definição cronológica de eventos sincronizados em torno de uma hora de referência (H-hour) e visualização animada da progressão da operação no mapa.
 
-### 12.1 Acesso
+### 12.1 Acesso e estrutura
 
-Controlo dedicado na barra de ferramentas. Apresenta janela modal com cronograma horizontal e lista editável de eventos.
+Controlo dedicado na barra de ferramentas. Apresenta janela modal organizada em três secções funcionais:
+
+1. **Cronograma** — visualização gráfica horizontal da distribuição temporal dos eventos;
+2. **Reprodução Cinemática** — controlos de playback animado;
+3. **Eventos** — lista editável dos eventos definidos.
 
 ### 12.2 Estrutura de cada evento
 
@@ -528,18 +577,49 @@ Visualização gráfica com:
 
 - Marcador vertical vermelho na posição H-hour;
 - Pontos coloridos para cada evento (âmbar quando associado a equipa, ciano caso contrário);
-- Etiquetas de offset em formato relativo (H-30, H+15, H+1h:30).
+- Etiquetas de offset em formato relativo (H-30, H+15, H+1h:30);
+- Cursor vertical ciano que percorre a linha temporal durante a reprodução.
 
 ### 12.4 Acções sobre eventos
 
-- Centragem da vista no marcador associado;
+- **+ Adicionar evento** — cria um novo evento com offset zero, pronto a editar;
+- **⟲ Repor** — apaga todos os eventos da timeline, com confirmação prévia. Acção reversível através do histórico (Ctrl+Z);
+- Centragem automática da vista no marcador associado ao evento;
 - Edição directa de qualquer campo;
 - Eliminação individual de eventos;
 - Reordenação automática por offset.
 
-### 12.5 Persistência
+### 12.5 Reprodução cinemática
 
-Os eventos são integrados no histórico de gravação automática, suportando reversão e restauro.
+Sistema de animação que percorre a linha temporal e dispara cada evento na sua hora, criando uma visualização dinâmica da progressão operacional.
+
+#### Controlos disponíveis
+
+- **▶ Reproduzir / ⏸ Pausa** — alterna entre reprodução e pausa;
+- **⏹ Parar** — pára a reprodução e repõe o estado original do mapa;
+- **Velocidade** — selector entre 1×, 2×, 4×, 8× e 16× (minutos operacionais por segundo real). Valor padrão: 4×;
+- **Câmara segue acção** — comutador que activa o seguimento automático da câmara para o ponto do evento actual;
+- **Cursor SEEK** — barra deslizante para navegação manual para qualquer instante da timeline.
+
+#### Comportamento visual durante a reprodução
+
+À medida que o cursor temporal avança, os marcadores no mapa reagem em tempo real:
+
+- **Pontos sem associação a eventos:** mantêm-se visíveis em estado neutro com leve atenuação (55% de opacidade);
+- **Pontos de eventos futuros:** permanecem ocultos até o seu evento ser disparado;
+- **Pontos de eventos disparados:** apresentam animação de aparição dramática (escala expansiva com brilho ciano, duração 800 ms);
+- **Onda de impacto:** a partir de cada ponto disparado, expandem-se dois círculos concêntricos ciano (duração 1,4 s);
+- **Câmara seguidora:** se activa, a vista desloca-se suavemente para o ponto do evento (duração 0,9 s);
+- **Evento actual:** o último ponto disparado mantém pulsação contínua em ciano até ao próximo evento;
+- **HUD flutuante:** caixa centralizada no topo do ecrã indicando hora corrente e identificação do evento, com flash subtil a cada disparo.
+
+#### HUD permanente
+
+A caixa de informação superior é independente do modal e permanece visível mesmo após o fecho da janela de timeline. Permite continuar a apresentação em modo briefing com a interface principal oculta.
+
+### 12.6 Persistência
+
+Os eventos são integrados no histórico de gravação automática, suportando reversão (Ctrl+Z) e restauro entre sessões.
 
 ---
 
@@ -627,7 +707,7 @@ Controlo dedicado na barra de ferramentas. A activação:
 
 ### 15.3 Aplicação típica
 
-Apresentações em sala de operações ou briefings a equipas, mantendo a interactividade de navegação cartográfica.
+Apresentações em sala de operações ou briefings a equipas, mantendo a interactividade de navegação cartográfica. Combinado com a Reprodução Cinemática da Timeline, permite apresentar a operação como sequência animada com a interface ocultada.
 
 ---
 
@@ -743,7 +823,8 @@ A plataforma mantém um histórico das últimas trinta acções realizadas.
 - Limpeza de medições;
 - Criação, edição e remoção de caixas de comentário;
 - Reposicionamento de marcadores;
-- Adição, edição e remoção de eventos timeline.
+- Adição, edição e remoção de eventos timeline;
+- Reposição global de timeline.
 
 Cada acção revertida apresenta notificação identificativa.
 
@@ -852,6 +933,14 @@ Os dispositivos móveis aproveitam o GPS interno, com precisão típica de 5 a 1
 2. Exportação em formato PDF para arquivo formal;
 3. Anexação da captura PNG a apresentações de pós-operação.
 
+### 23.4 Apresentação a equipas
+
+1. Definição da timeline completa com todos os eventos sincronizados a H-hour;
+2. Activação do Modo Briefing para libertar a totalidade da vista cartográfica;
+3. Reprodução cinemática a velocidade adequada (sugerido 2× ou 4× para apresentação verbal simultânea);
+4. Pausa em momentos críticos para discussão técnica;
+5. Utilização do cursor SEEK para revisitar fases específicas.
+
 ---
 
 ## 24. Resolução de Anomalias
@@ -864,6 +953,8 @@ Os dispositivos móveis aproveitam o GPS interno, com precisão típica de 5 a 1
 | Captura PNG sem cartografia | Tiles não totalmente carregados | Aguardar antes de capturar |
 | Trabalho perdido após fecho | — | Restauro automático ao reabrir, com confirmação |
 | Repor estado inicial | — | Limpeza de cache do navegador para o domínio |
+| Linha de visão sem resposta | Provedor de elevação indisponível ou sem ligação à internet | Alternar provedor (botão direito sobre LOS); verificar conectividade |
+| Reprodução cinemática sem efeitos visíveis | Eventos sem ponto associado | Atribuir um marcador a cada evento na coluna "Ponto ligado" |
 
 ---
 
